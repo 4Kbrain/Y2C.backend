@@ -13,7 +13,7 @@ async function bootstrapServer(): Promise<Server> {
   return createServer(app.getHttpAdapter().getInstance());
 }
 
-export const handler: Handler = async (event, context, callback) => {
+export const handler: Handler = async (event, context) => {
   if (!cachedServer) {
     cachedServer = await bootstrapServer();
   }
